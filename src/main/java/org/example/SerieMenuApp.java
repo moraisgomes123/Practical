@@ -1,33 +1,37 @@
 package org.example;
 import java.util.Scanner;
 
-public  class SerieMenuApp{
-    public static void main (String[] args){
+public class SerieMenuApp {
+    public static void main (String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Series seriesMenuApp = new Series();
+        Series seriesMenuApp = new Series(); // Object that handles all series-related actions
 
-
-        while (true){
+        // Outer loop: gives the option to start the menu or exit the whole program
+        while (true) {
             System.out.println("\nLATEST SERIES - 2025");
             System.out.print("Enter (1) to launch menu or any other key to exit: ");
             String option = scanner.nextLine();
 
-            if (!option.equals("1")){
+            // If the user doesn't enter "1", we quit the application completely
+            if (!option.equals("1")) {
                 System.out.println("Application closed.");
                 break;
             }
-            while (true){
-                System.out.println("\nPlease select one of the following menu item");
+
+            // Inner loop: runs the actual menu until the user decides to stop
+            while (true) {
+                System.out.println("\nPlease select one of the following menu items");
                 System.out.println("(1) Capture a new series.");
-                System.out.println("(2) Search for  series.");
-                System.out.println("(3) Update series age restriction");
+                System.out.println("(2) Search for a series.");
+                System.out.println("(3) Update series age restriction.");
                 System.out.println("(4) Delete series.");
-                System.out.println("(5) Print series report - 2025");
+                System.out.println("(5) Print series report - 2025.");
                 System.out.println("(6) Exit Application.");
-                System.out.println("Select menu item: ");
+                System.out.print("Select menu item: ");
 
                 String choice = scanner.nextLine();
 
+                // Handles the menu options by calling methods from the Series class
                 switch (choice) {
                     case "1":
                         seriesMenuApp.CaptureSeries();
@@ -48,15 +52,16 @@ public  class SerieMenuApp{
                         seriesMenuApp.ExitSeriesApplication();
                         break;
                     default:
-                    System.out.println("Invalid choice. Try again.");
-                    break;
+                        System.out.println("Invalid choice. Try again.");
+                        break;
                 }
-
+                // After finishing an action, ask the user if they want to relaunch the menu
                 System.out.print("Enter (1) to launch menu or any other key to exit: ");
                 String repeat = scanner.nextLine();
-                if (!option.equals("1")){
+                // Small bug here: you're checking "option" again instead of "repeat"
+                if (!repeat.equals("1")) {
                     System.out.println("Application closed.");
-                    return;
+                    return; // exits the program
                 }
             }
         }
