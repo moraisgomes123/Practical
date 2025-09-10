@@ -6,7 +6,6 @@ public class Series {
     static ArrayList<SeriesModel> seriesList = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
 
-    // --- Capture a new series and add it to the list ---
     public void CaptureSeries() {
         System.out.println("CAPTURE A NEW SERIES");
 
@@ -33,8 +32,8 @@ public class Series {
         seriesList.add(series);
         System.out.println("Series processed successfully!");
     }
-
-    // --- Search for a series by ID ---
+    // ChatGPT to fix my errors 
+    //Search for a series by ID
     public void SearchSeries() {
         System.out.print("Enter the series id to search: ");
         String id = scanner.nextLine();
@@ -46,8 +45,8 @@ public class Series {
             System.out.println("Series with Series Id: " + id + " was not found!");
         }
     }
-
-    // --- Update an existing series ---
+     // ChatGPT to fix my errors and the code
+    //Update an existing series
     public void UpdateSeries() {
         System.out.print("Enter the series id to update: ");
         String id = scanner.nextLine();
@@ -76,8 +75,8 @@ public class Series {
             found.SeriesNumberOfEpisodes = scanner.nextLine();
         }
     }
-
-    // --- Delete a series by ID ---
+     // chatGPT generation for helping in this method
+    //Delete a series by ID
     public void DeleteSeries() {
         System.out.print("Enter the series id to delete: ");
         String id = scanner.nextLine();
@@ -97,8 +96,6 @@ public class Series {
             System.out.println("Series with Series id: " + id + " was not found!");
         }
     }
-
-    // --- Print all series stored in the list ---
     public void SeriesReport() {
         if (seriesList.isEmpty()) {
             System.out.println("No series to display.");
@@ -113,13 +110,11 @@ public class Series {
         }
     }
 
-    // --- Exit the application completely ---
     public void ExitSeriesApplication() {
         System.out.println("Exiting application...");
         System.exit(0);
     }
 
-    // --- Helper: checks if age restriction is valid (must be between 3 and 18) ---
     private boolean isValidAge(String input) {
         try {
             int age = Integer.parseInt(input);
