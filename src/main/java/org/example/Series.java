@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Series {
-    // Stores all series objects in memory (like a small database)
     static ArrayList<SeriesModel> seriesList = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
 
@@ -11,14 +10,12 @@ public class Series {
     public void CaptureSeries() {
         System.out.println("CAPTURE A NEW SERIES");
 
-        // Ask for series details
         System.out.println("Enter the series id: ");
         String id = scanner.nextLine();
 
         System.out.println("Enter the series name: ");
         String name = scanner.nextLine();
 
-        // Validate the age restriction until the input is correct
         String age;
         while (true) {
             System.out.println("Enter the series age restriction: ");
@@ -32,7 +29,6 @@ public class Series {
         System.out.println("Enter the number of episodes for " + name + ":");
         String episodes = scanner.nextLine();
 
-        // Create the new SeriesModel and store it in the list
         SeriesModel series = new SeriesModel(id, name, age, episodes);
         seriesList.add(series);
         System.out.println("Series processed successfully!");
@@ -58,11 +54,9 @@ public class Series {
         SeriesModel found = findSeriesById(id);
 
         if (found != null) {
-            // Update name
             System.out.print("Enter the series name: ");
             found.SeriesName = scanner.nextLine();
 
-            // Update age restriction with validation
             String age;
             while (true) {
                 System.out.print("Enter the age restriction: ");
@@ -74,12 +68,10 @@ public class Series {
             }
             found.SeriesAge = age;
 
-            // Update episodes
             System.out.println("Enter the number of episodes: ");
             found.SeriesNumberOfEpisodes = scanner.nextLine();
 
         } else {
-            // It should probably just say "Series not found!" instead.
             System.out.print("Enter the number of episodes: ");
             found.SeriesNumberOfEpisodes = scanner.nextLine();
         }
@@ -137,7 +129,6 @@ public class Series {
         }
     }
 
-    // --- Helper: find a series in the list by ID ---
     private SeriesModel findSeriesById(String id) {
         for (SeriesModel s : seriesList) {
             if (s.SeriesId.equals(id)) return s;
@@ -145,7 +136,6 @@ public class Series {
         return null;
     }
 
-    // --- Helper: print a series nicely ---
     private void printSeries(SeriesModel s) {
         System.out.println("SERIES ID: " + s.SeriesId);
         System.out.println("SERIES NAME: " + s.SeriesName);
