@@ -4,21 +4,20 @@ import java.util.Scanner;
 public class SerieMenuApp {
     public static void main (String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Series seriesMenuApp = new Series(); // Object that handles all series-related actions
+        Series seriesMenuApp = new Series();
 
-        // Outer loop: gives the option to start the menu or exit the whole program
+        //the option to start the menu or exit 
         while (true) {
             System.out.println("\nLATEST SERIES - 2025");
             System.out.print("Enter (1) to launch menu or any other key to exit: ");
             String option = scanner.nextLine();
 
-            // If the user doesn't enter "1", we quit the application completely
             if (!option.equals("1")) {
                 System.out.println("Application closed.");
                 break;
             }
 
-            // Inner loop: runs the actual menu until the user decides to stop
+            // Displaying the menu
             while (true) {
                 System.out.println("\nPlease select one of the following menu items");
                 System.out.println("(1) Capture a new series.");
@@ -31,7 +30,7 @@ public class SerieMenuApp {
 
                 String choice = scanner.nextLine();
 
-                // Handles the menu options by calling methods from the Series class
+                // the menu options by calling methods
                 switch (choice) {
                     case "1":
                         seriesMenuApp.CaptureSeries();
@@ -58,10 +57,9 @@ public class SerieMenuApp {
                 // After finishing an action, ask the user if they want to relaunch the menu
                 System.out.print("Enter (1) to launch menu or any other key to exit: ");
                 String repeat = scanner.nextLine();
-                // Small bug here: you're checking "option" again instead of "repeat"
                 if (!repeat.equals("1")) {
                     System.out.println("Application closed.");
-                    return; // exits the program
+                    return;
                 }
             }
         }
