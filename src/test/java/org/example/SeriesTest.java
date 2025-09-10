@@ -1,3 +1,4 @@
+// Assisted by DeepSeek AI for structure and implementation guidance
 package org.example;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,6 +16,9 @@ class SeriesTest {
     private final InputStream originalIn = System.in;
     private final PrintStream originalOut = System.out;
     private ByteArrayOutputStream outContent;
+    // Unit tests for the Series class
+// Assisted by DeepSeek AI for structure and implementation guidance
+
 
     @BeforeEach
     void setUp() {
@@ -34,7 +38,7 @@ class SeriesTest {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         Series.scanner = new java.util.Scanner(System.in); // reset scanner
     }
-
+   // Assisted by DeepSeek AI for structure and implementation guidance
     @Test
     void searchSeries() {
         Series.seriesList.add(new SeriesModel("101", "Wild Adventure", "10", "5"));
@@ -52,10 +56,10 @@ class SeriesTest {
         series.SearchSeries();
 
         String output = outContent.toString();
-        assertTrue(output.contains("not found")); // Adjust based on actual error message
+        assertTrue(output.contains("not found")); 
     }
 
-
+    // GeeksforGeeks (https://www.geeksforgeeks.org/junit-testing-in-java/)
     @Test
     void updateSeries() {
         Series.seriesList.add(new SeriesModel("202", "Old Name", "12", "4"));
@@ -79,7 +83,7 @@ class SeriesTest {
         assertTrue(Series.seriesList.isEmpty());
         assertFalse(outContent.toString().contains("WAS deleted!"));
     }
-
+    // GeeksforGeeks (https://www.geeksforgeeks.org/junit-testing-in-java/)
     @Test
     void TestDeleteSeries_SeriesNotFound() {
         simulateInput("888\n");
@@ -90,7 +94,7 @@ class SeriesTest {
         assertTrue(output.contains("not found")); // Adjust based on actual error message
     }
 
-
+// GeeksforGeeks (https://www.geeksforgeeks.org/junit-testing-in-java/)
     @Test
     void seriesReport() {
         Series.seriesList.add(new SeriesModel("401", "Cooking Show", "10", "8"));
@@ -104,7 +108,7 @@ class SeriesTest {
         assertTrue(output.contains("Series 2"));
         assertTrue(output.contains("Drama Club"));
     }
-
+// GeeksforGeeks (https://www.geeksforgeeks.org/junit-testing-in-java/)
     @Test
     void exitSeriesApplication() {
         assertDoesNotThrow(() -> {
