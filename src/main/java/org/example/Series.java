@@ -32,7 +32,6 @@ public class Series {
         seriesList.add(series);
         System.out.println("Series processed successfully!");
     }
-    // ChatGPT to fix my errors 
     //Search for a series by ID
     public void SearchSeries() {
         System.out.print("Enter the series id to search: ");
@@ -45,7 +44,6 @@ public class Series {
             System.out.println("Series with Series Id: " + id + " was not found!");
         }
     }
-     // ChatGPT to fix my errors and the code
     //Update an existing series
     public void UpdateSeries() {
         System.out.print("Enter the series id to update: ");
@@ -75,7 +73,6 @@ public class Series {
             found.SeriesNumberOfEpisodes = scanner.nextLine();
         }
     }
-     // chatGPT generation for helping in this method
     //Delete a series by ID
     public void DeleteSeries() {
         System.out.print("Enter the series id to delete: ");
